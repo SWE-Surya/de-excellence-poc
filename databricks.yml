@@ -29,18 +29,29 @@ targets:
     default: true
     workspace:
       host: https://dbc-93f33ef9-9f51.cloud.databricks.com
+      profile: lending_analytics
     variables:
       catalog: de_excellence_poc
-      schema: dev
+      schema: surya_dev
+  test:
+    mode: development
+    workspace:
+      host: https://dbc-93f33ef9-9f51.cloud.databricks.com
+      profile: lending_analytics
+      root_path: /Workspace/Users/suryamani.sudhakar@cloudkaptan.com/.bundle/${bundle.name}/${bundle.target}
+    variables:
+      catalog: de_excellence_poc
+      schema: surya_test
   prod:
     mode: production
     workspace:
       host: https://dbc-93f33ef9-9f51.cloud.databricks.com
       # We explicitly deploy to /Workspace/Users/suryamani.sudhakar@cloudkaptan.com to make sure we only have a single copy.
       root_path: /Workspace/Users/suryamani.sudhakar@cloudkaptan.com/.bundle/${bundle.name}/${bundle.target}
+      profile: lending_analytics
     variables:
       catalog: de_excellence_poc
-      schema: prod
+      schema: surya_prod
     permissions:
       - user_name: suryamani.sudhakar@cloudkaptan.com
         level: CAN_MANAGE
