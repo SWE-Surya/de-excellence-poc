@@ -77,8 +77,4 @@ def build_silver(
     fact_df = spark.read.table(bronze_fact_table)
     income_df = spark.read.table(bronze_income_table)
     silver_df = build_silver_df(fact_df, income_df)
-    (
-        silver_df.write.mode("overwrite")
-        .option("overwriteSchema", "true")
-        .saveAsTable(target_table)
-    )
+    (silver_df.write.mode("overwrite").option("overwriteSchema", "true").saveAsTable(target_table))

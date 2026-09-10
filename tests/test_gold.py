@@ -12,8 +12,7 @@ from pyspark.testing.utils import assertDataFrameEqual  # noqa: F401 (kept for p
 from de_excellence_poc.gold import build_gold_df
 
 SILVER_SCHEMA = (
-    "product_name string, final_approval_status boolean, "
-    "approved_loan_amount double, verified_income double"
+    "product_name string, final_approval_status boolean, approved_loan_amount double, verified_income double"
 )
 
 

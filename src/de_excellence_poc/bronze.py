@@ -20,9 +20,7 @@ def add_ingestion_metadata(df: DataFrame, source_table: str) -> DataFrame:
 
     No cleaning or filtering: bronze is a faithful copy of the source.
     """
-    return df.withColumn("_ingested_at", F.current_timestamp()).withColumn(
-        "_source_table", F.lit(source_table)
-    )
+    return df.withColumn("_ingested_at", F.current_timestamp()).withColumn("_source_table", F.lit(source_table))
 
 
 def ingest_to_bronze(
@@ -37,8 +35,4 @@ def ingest_to_bronze(
     """
     source_df = spark.read.table(source_table)
     bronze_df = add_ingestion_metadata(source_df, source_table)
-    (
-        bronze_df.write.mode("overwrite")
-        .option("overwriteSchema", "true")
-        .saveAsTable(target_table)
-    )
+    (bronze_df.write.mode("overwrite").option("overwriteSchema", "true").saveAsTable(target_table))
