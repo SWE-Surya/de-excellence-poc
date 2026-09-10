@@ -5,8 +5,8 @@ no Databricks workspace, no token, runs in CI. A separate remote session
 (Databricks Connect) will be added later for integration/E2E tests (COD-06).
 """
 
-import json
 import csv
+import json
 import pathlib
 
 import pytest

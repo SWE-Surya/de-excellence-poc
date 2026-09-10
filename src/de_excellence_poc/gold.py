@@ -51,8 +51,4 @@ def build_gold(spark: SparkSession, silver_table: str, target_table: str) -> Non
     """Thin I/O wrapper: read silver, apply build_gold_df, write gold."""
     silver_df = spark.read.table(silver_table)
     gold_df = build_gold_df(spark, silver_df)
-    (
-        gold_df.write.mode("overwrite")
-        .option("overwriteSchema", "true")
-        .saveAsTable(target_table)
-    )
+    (gold_df.write.mode("overwrite").option("overwriteSchema", "true").saveAsTable(target_table))
