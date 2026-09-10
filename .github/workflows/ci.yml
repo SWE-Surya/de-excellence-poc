@@ -32,7 +32,7 @@ jobs:
           # Install the package plus the CI tools we actually need.
           # We install pyspark directly (not databricks-connect) for local-style unit tests.
           pip install -e .
-          pip install pytest pytest-cov ruff chispa "pyspark==3.5.3"
+          pip install pytest pytest-cov ruff chispa "pyspark==3.5.3" "pandas==2.1.4" "pyarrow==14.0.2"
 
       - name: Ruff lint (COD-04)
         run: ruff check .
