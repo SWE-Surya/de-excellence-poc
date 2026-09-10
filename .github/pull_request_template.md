@@ -21,6 +21,7 @@
 - [ ] Linter/formatter passes (ruff / sqlfluff) (COD-04)
 - [ ] Transformation logic has unit tests covering edge cases, and they pass (COD-05)
 - [ ] End-to-end / contract check considered or updated if the pipeline changed (COD-06)
+- [ ] Promotion/deploy runs through the bundle/CI, not manual copying (COD-07)
 - [ ] No secrets, credentials, or hardcoded tokens anywhere in the diff or history (COD-08)
 - [ ] Tests and CI checks pass
 - [ ] Docs / evidence map updated if behaviour changed
