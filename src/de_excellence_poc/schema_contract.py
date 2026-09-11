@@ -42,9 +42,7 @@ def check_missing_columns(expected: set[str], actual: set[str]) -> set[str]:
     return expected - actual
 
 
-def read_actual_columns(
-    spark: SparkSession, catalog: str, schema: str, table: str
-) -> set[str]:
+def read_actual_columns(spark: SparkSession, catalog: str, schema: str, table: str) -> set[str]:
     """Read the live column names for a table from information_schema. Read-only I/O."""
     rows = (
         spark.table(f"{catalog}.information_schema.columns")
@@ -75,9 +73,7 @@ def assert_source_contract(
             continue
         missing = check_missing_columns(cols, actual)
         if missing:
-            problems.append(
-                f"{catalog}.{schema}.{table}: missing columns {sorted(missing)}"
-            )
+            problems.append(f"{catalog}.{schema}.{table}: missing columns {sorted(missing)}")
 
     if problems:
         raise ValueError("Schema contract check failed:\n  " + "\n  ".join(problems))

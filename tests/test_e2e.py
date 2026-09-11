@@ -7,8 +7,8 @@ end to end, catching integration issues a unit test on a single function cannot.
 Self-contained: fixtures in, final DataFrame out, local Spark, no live catalog.
 """
 
-from de_excellence_poc.silver import build_silver_df
 from de_excellence_poc.gold import build_gold_df
+from de_excellence_poc.silver import build_silver_df
 
 
 def test_pipeline_end_to_end(spark):
@@ -22,8 +22,7 @@ def test_pipeline_end_to_end(spark):
             ("APP-2", "Personal Loan", False, 0.0),
             ("APP-3", "Auto Loan", True, 8000.0),
         ],
-        "application_id string, product_name string, "
-        "final_approval_status boolean, approved_loan_amount double",
+        "application_id string, product_name string, final_approval_status boolean, approved_loan_amount double",
     )
     # income: APP-1 fans out to 2 rows; APP-2 has 1; APP-3 has NONE (missing).
     income = spark.createDataFrame(
