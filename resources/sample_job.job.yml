@@ -3,7 +3,7 @@
 resources:
   jobs:
     medallion_pipeline:
-      name: medallion_pipeline
+      name: medallion_pipeline 
 
 
       #email_notifications:
